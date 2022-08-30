@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pharmserv/presentation/widgets/button_widget.dart';
+import 'package:pharmserv/presentation/widgets/button_widgets2.dart';
 import 'package:pharmserv/presentation/widgets/custom_text.dart';
 import 'package:pharmserv/presentation/widgets/form_field.dart';
 import 'package:sizer/sizer.dart';
@@ -152,8 +153,8 @@ class _CustomerFormState extends State<CustomerForm> {
         ),
       const SizedBox(height:15),
        Padding(
-        padding:const EdgeInsets.all(15.0),
-        child: ButtonWidget(text: "Save",press:(){}),
+        padding:const EdgeInsets.all(6.0),
+        child: ButtonWidget2(text: "Save",press:(){},text2:"Continue",press2:(){}),
       )
       ],),
     );

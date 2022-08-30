@@ -34,7 +34,7 @@ class _ForgetPasswordState extends State<ForgetPassword> {
                 EmailTextField(
                 validationText: "Email Address",
                 controller: emailController,
-                onChanged: (){},
+                onChanged: (value){},
               ),
               const SizedBox(height:36),
               ButtonWidget(

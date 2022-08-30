@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:pharmserv/presentation/utils/constants.dart';
 import 'package:pharmserv/presentation/widgets/custom_text.dart';
 import 'package:sizer/sizer.dart';
 
 class TextFieldC extends StatefulWidget {
-  const TextFieldC ({ Key? key,this.controller,this.onChanged,this.validationText}) : super(key: key);
+  const TextFieldC({ Key? key,this.controller,this.onChanged,this.validationText,this.validFunction,this.submitted}) : super(key: key);
   final TextEditingController? controller;
-  final VoidCallback? onChanged;
+  final Function(String)? onChanged;
+  final String? Function(String?)? validFunction;
   final String? validationText;
+  final bool? submitted;
   @override
   State<TextFieldC> createState() => _TextFieldCState();
 }
 
 class _TextFieldCState extends State<TextFieldC> {
-  bool _submitted = false;
   bool? name;
   @override
   
@@ -28,9 +28,9 @@ class _TextFieldCState extends State<TextFieldC> {
           height: 58,
            child: TextFormField(
             keyboardType: TextInputType.text,
-            // autovalidateMode: _submitted
-            //     ? AutovalidateMode.onUserInteraction
-            //     : AutovalidateMode.disabled,
+            autovalidateMode: widget.submitted ?? false
+                ? AutovalidateMode.onUserInteraction
+                : AutovalidateMode.disabled,
             controller: widget.controller,
             onChanged: (value) {
               value = widget.controller!.text;
@@ -47,13 +47,15 @@ class _TextFieldCState extends State<TextFieldC> {
             onSaved: (value) {
               value = widget.controller!.text;
             },
-            validator: (value) {
-              String? errorMessage;
-              if (value!.isEmpty) {
-                errorMessage = "\u26A0 ${widget.validationText} is required";
-              } 
-              return errorMessage;
-            },
+            // validator: (value) {
+            //   String? errorMessage;
+            //   if (value!.isEmpty) {
+            //     errorMessage = "\u26A0 ${widget.validationText} is required";
+            //   } 
+            //   return errorMessage;
+            // },
+            validator: widget.validFunction,
+
             decoration:const InputDecoration(
               floatingLabelStyle: TextStyle(
               ),
@@ -75,16 +77,17 @@ class _TextFieldCState extends State<TextFieldC> {
 
 
 class EmailTextField extends StatefulWidget {
-  const EmailTextField({ Key? key,this.controller,this.onChanged,this.validationText}) : super(key: key);
+  const EmailTextField({ Key? key,this.controller,this.onChanged,this.validationText,this.validFunction,this.submitted}) : super(key: key);
   final TextEditingController? controller;
-  final VoidCallback? onChanged;
+  final Function(String?)? onChanged;
   final String? validationText;
+  final String? Function(String?)? validFunction;
+  final bool? submitted;
   @override
   State<EmailTextField> createState() => _EmailTextFieldState();
 }
 
 class _EmailTextFieldState extends State<EmailTextField> {
-  bool _submitted = false;
   bool? name;
   @override
   
@@ -99,34 +102,24 @@ class _EmailTextFieldState extends State<EmailTextField> {
           height: 48,
            child: TextFormField(
             keyboardType: TextInputType.emailAddress,
-            // autovalidateMode: _submitted
-            //     ? AutovalidateMode.onUserInteraction
-            //     : AutovalidateMode.disabled,
+            autovalidateMode: widget.submitted ?? false
+                ? AutovalidateMode.onUserInteraction
+                : AutovalidateMode.disabled,
             controller: widget.controller,
-            onChanged: (value) {
-              value = widget.controller!.text;
-              setState(
-                () {
-                  if (value.isNotEmpty||!emailValidatorRegExp.hasMatch(value)) {
-                    name = true;
-                  } else {
-                    name = false;
-                  }
-                },
-              );
-            },
+            onChanged: widget.onChanged,
             onSaved: (value) {
               value = widget.controller!.text;
             },
-            validator: (value) {
-              String? errorMessage;
-              if (value!.isEmpty) {
-                errorMessage = "\u26A0 ${widget.validationText} is required";
-              } else if (!emailValidatorRegExp.hasMatch(value)) {
-                  errorMessage = "\u26A0 Invalid Email Address";
-                }
-              return errorMessage;
-            },
+            validator: widget.validFunction,
+            // validator: (value) {
+            //   String? errorMessage;
+            //   if (value!.isEmpty) {
+            //     errorMessage = "\u26A0 ${widget.validationText} is required";
+            //   } else if (!emailValidatorRegExp.hasMatch(value)) {
+            //       errorMessage = "\u26A0 Invalid Email Address";
+            //     }
+            //   return errorMessage;
+            // },
             decoration:const InputDecoration(
               floatingLabelStyle: TextStyle(
               ),

@@ -7,7 +7,10 @@ import 'package:pharmserv/presentation/screens/customers/create_new_customers/cr
 import 'package:pharmserv/presentation/screens/customers/view_customer.dart/view_customer.dart';
 import 'package:pharmserv/presentation/screens/dashboard/dashboard.dart';
 import 'package:pharmserv/presentation/screens/delivery_status/delivery_status.dart';
+import 'package:pharmserv/presentation/screens/notifications/notification.dart';
 import 'package:pharmserv/presentation/screens/onboarding/onboarding.dart';
+import 'package:pharmserv/presentation/screens/order_summary/order_summary.dart';
+import 'package:pharmserv/presentation/screens/order_summary/widgets/order_summary_body.dart';
 import 'package:pharmserv/presentation/screens/orders/add_orders/add_order.dart';
 import 'package:pharmserv/presentation/screens/orders/order_details/order_details.dart';
 import 'package:pharmserv/presentation/screens/payment_status/payment_status.dart';
@@ -30,4 +33,6 @@ final Map<String, WidgetBuilder> routes = {
   PaymentStatus.routeName:(context) => const PaymentStatus(),
   DeliveryStatus.routeName:(context) => const DeliveryStatus(),
   ShareLink.routeName:(context) =>  const ShareLink(),
+  Notifications.routeName:(context) => const Notifications(),
+  OrderSummary.routeName: (context) => const OrderSummary()
   };

@@ -68,13 +68,13 @@ class _SignUpState extends State<SignUp> {
                TextFieldC(
                validationText: "FirstName",
                controller: firstNameController,
-               onChanged: (){},
+               onChanged: (value){},
                ),
                const SizedBox(height:15),
                TextFieldC(
                validationText: "Last Name",
                controller: lastNameController,
-               onChanged: (){},
+               onChanged: (value){},
                ),
               const SizedBox(height:15),
               CustomText(text:"Company Name", size: 12.sp,color:const Color(0xFF828282)),
@@ -105,7 +105,7 @@ class _SignUpState extends State<SignUp> {
             EmailTextField(
               validationText: "Company Email",
               controller: emailController,
-              onChanged: (){},
+              onChanged: (value){},
             ),
             const SizedBox(height:15),
               CustomText(text:"Tier", size: 12.sp,color:const Color(0xFF828282)),
@@ -151,13 +151,13 @@ class _SignUpState extends State<SignUp> {
              TextFieldC(
                validationText: "State",
                controller: lastNameController,
-               onChanged: (){},
+               onChanged: (value){},
                ),
               const SizedBox(height:15),
               TextFieldC(
                validationText: "Local Government",
                controller: lastNameController,
-               onChanged: (){},
+               onChanged: (value){},
                ),
               const SizedBox(height:26),
               ButtonWidget(

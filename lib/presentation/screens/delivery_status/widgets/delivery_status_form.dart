@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pharmserv/presentation/screens/order_summary/order_summary.dart';
 import 'package:pharmserv/presentation/widgets/button_widget.dart';
+import 'package:pharmserv/presentation/widgets/button_widgets2.dart';
 import 'package:pharmserv/presentation/widgets/custom_text.dart';
 import 'package:pharmserv/presentation/widgets/form_field.dart';
 import 'package:sizer/sizer.dart';
@@ -15,11 +17,11 @@ class _DeliveryStatusFormState extends State<DeliveryStatusForm> {
   TextEditingController salesAgentNameController = TextEditingController();
  List<String> deliveryDateList = [
  "Unknown",
- "Next 4 Hours",
+ "Next 24 Hours",
  "Next 48 Hours",
  "Not set"
  ];
- 
+ String? deliveryDate;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -41,6 +43,7 @@ class _DeliveryStatusFormState extends State<DeliveryStatusForm> {
             ),
             child: DropdownButtonHideUnderline(
               child: DropdownButton<String>(
+                value: deliveryDate,
                 iconSize: 36,
                 isExpanded: true,     
                 icon: const Icon(
@@ -48,7 +51,8 @@ class _DeliveryStatusFormState extends State<DeliveryStatusForm> {
                   color: Colors.black,
                 ),
                 items: deliveryDateList.map(buildMenuItem).toList(),
-                onChanged: (value) => setState(() {             
+                onChanged: (value) => setState(() {
+                  deliveryDate = value;             
                 }),
               ),
             )),
@@ -58,10 +62,11 @@ class _DeliveryStatusFormState extends State<DeliveryStatusForm> {
         validationText: "Name of Sales Agent",
        ),
       const SizedBox(height:15),
-       Padding(
-        padding:const EdgeInsets.all(7.0),
-        child: ButtonWidget(text: "Save",press:(){}),
-      )
+      Padding(
+          padding:const EdgeInsets.all(7.0),
+          child: ButtonWidget2(text: "Continue",
+          press:() => Navigator.pushNamed(context, OrderSummary.routeName),text2: "Cancel",press2:(){}),
+        )
       ],),
     );
   }

@@ -3,9 +3,9 @@ import 'package:pharmserv/presentation/utils/constants.dart';
 import 'package:pharmserv/presentation/widgets/back_button.dart';
 import 'package:pharmserv/presentation/widgets/custom_text.dart';
 import 'package:sizer/sizer.dart';
-class AddOrders extends StatelessWidget {
-  const AddOrders({ Key? key }) : super(key: key);
- static String routeName = "/add-orders";
+class Notifications extends StatelessWidget {
+  const Notifications ({ Key? key }) : super(key: key);
+ static String routeName = "/notification";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +30,10 @@ class AddOrders extends StatelessWidget {
                ],
              ),
              const SizedBox(width: 8,),
-                ListView.builder(itemBuilder: ((context, index) {
+                ListView.builder(
+                  shrinkWrap: true,
+                  physics:const NeverScrollableScrollPhysics(),
+                  itemBuilder: ((context, index) {
                   return ListTile(
                     leading:Image.asset("assets/icons/image.png",width: 100,
                     

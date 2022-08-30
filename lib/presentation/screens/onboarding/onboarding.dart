@@ -17,12 +17,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
   final _controller = PageController();
   int _currentPage = 0;
   final List<Map<String, String>> _onboardingData = [
-    {
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut morbi mauris sit mattis. "
-    },
-    {
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut morbi mauris sit mattis. "
-    },
+    // {
+    //   "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut morbi mauris sit mattis. "
+    // },
+    // {
+    //   "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut morbi mauris sit mattis. "
+    // },
     {
       "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut morbi mauris sit mattis. "
     },
@@ -66,13 +66,13 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                    _onboardingData.length, (index) => _buildDots(index)),
-              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.center,
+              //   children: List.generate(
+              //       _onboardingData.length, (index) => _buildDots(index)),
+              // ),
               // const SizedBox(height:15),
-              const Spacer(),
+              // const Spacer(),
               Visibility(
                 visible:  _currentPage + 1 == _onboardingData.length
                       ? true:false,

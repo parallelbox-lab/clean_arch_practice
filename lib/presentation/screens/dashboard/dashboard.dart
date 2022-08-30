@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pharmserv/presentation/screens/notifications/notification.dart';
 import 'package:pharmserv/presentation/utils/constants.dart';
 import 'package:pharmserv/presentation/widgets/custom_text.dart';
 import 'package:sizer/sizer.dart';
@@ -21,7 +22,7 @@ class Dashboard extends StatelessWidget {
           child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _header(drawerCanOpen, scaffoldkey),
+              _header(drawerCanOpen, scaffoldkey,context),
               const SizedBox(height:10),
               CustomText(text: "Hi, ABC Phamacy",size:14.sp,weight:FontWeight.w600),
               CustomText(text: "Welcome Back",size:14.sp,weight:FontWeight.w400),
@@ -138,7 +139,7 @@ class Dashboard extends StatelessWidget {
     );
   }
 
-    _header(bool drawerCanOpen, GlobalKey<ScaffoldState> scaffoldkey) {
+    _header(bool drawerCanOpen, GlobalKey<ScaffoldState> scaffoldkey,context) {
     return Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -149,7 +150,7 @@ class Dashboard extends StatelessWidget {
                   scaffoldkey.currentState!.openDrawer();
                 }
                 }, icon:Image.asset("assets/icons/menu.png")),
-                IconButton(onPressed: (){}, icon: Image.asset("assets/icons/notification.png")),
+                IconButton(onPressed: ()=>Navigator.pushNamed(context, Notifications.routeName), icon: Image.asset("assets/icons/notification.png")),
               ],
             );
   }

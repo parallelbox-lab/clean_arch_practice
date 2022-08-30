@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pharmserv/presentation/screens/delivery_status/delivery_status.dart';
 import 'package:pharmserv/presentation/widgets/button_widget.dart';
+import 'package:pharmserv/presentation/widgets/button_widgets2.dart';
 import 'package:pharmserv/presentation/widgets/custom_text.dart';
+import 'package:pharmserv/presentation/widgets/form_field.dart';
 import 'package:sizer/sizer.dart';
 
 class PaymentStatusForm extends StatefulWidget {
@@ -29,6 +32,8 @@ class _PaymentStatusFormState extends State<PaymentStatusForm> {
   "Email Address",
   "Whatsapp"
  ];
+ String? shareInvoice;
+ bool showWhatsappFiled = false;
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -100,6 +105,7 @@ class _PaymentStatusFormState extends State<PaymentStatusForm> {
             ),
             child: DropdownButtonHideUnderline(
               child: DropdownButton<String>(
+                value: shareInvoice,
                 iconSize: 36,
                 isExpanded: true,     
                 icon: const Icon(
@@ -107,17 +113,30 @@ class _PaymentStatusFormState extends State<PaymentStatusForm> {
                   color: Colors.black,
                 ),
                 items: shareInvoiceList.map(buildMenuItem).toList(),
-                onChanged: (value) => setState(() {             
+                onChanged: (value) => setState(() {    
+                  shareInvoice = value;
+                  if(value == "Whatsapp"){
+                     showWhatsappFiled = true;     
+                  }
+                  if(value == "Email Address"){
+                    showWhatsappFiled = false;     
+                  }
                 }),
               ),
             )),
          const SizedBox(height:15),
-       
-      const SizedBox(height:15),
+         Visibility(
+          visible:showWhatsappFiled ? true : false ,
+          child: TextFieldC(
+          validationText: "Whatsapp Number",
+          onChanged: (value){},
+         )),
+        const SizedBox(height:15),
        Padding(
-        padding:const EdgeInsets.all(7.0),
-        child: ButtonWidget(text: "Continue",press:(){}),
-      )
+             padding:const EdgeInsets.all(7.0),
+             child: ButtonWidget2(text: "Continue",
+             press:() => Navigator.pushNamed(context, DeliveryStatus.routeName),text2: "Cancel",press2:(){}),
+           )
       ],),
     );
   }

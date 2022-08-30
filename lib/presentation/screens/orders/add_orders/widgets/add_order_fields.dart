@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pharmserv/presentation/screens/payment_status/payment_status.dart';
 import 'package:pharmserv/presentation/widgets/button_widget.dart';
+import 'package:pharmserv/presentation/widgets/button_widgets2.dart';
 import 'package:pharmserv/presentation/widgets/custom_text.dart';
 import 'package:pharmserv/presentation/widgets/form_field.dart';
 import 'package:pharmserv/presentation/widgets/success_popup.dart';
@@ -406,8 +408,9 @@ List<String> productName = [
         ),
            const SizedBox(height:10),
            Padding(
-             padding:const EdgeInsets.all(15.0),
-             child: ButtonWidget(text: "save",press:(){
+             padding:const EdgeInsets.all(7.0),
+             child: ButtonWidget2(text: "save",
+             press:(){
               showDialog(
                 barrierDismissible: false,
                 context: context,
@@ -417,7 +420,7 @@ List<String> productName = [
 
                   );
                 });
-             }),
+             },text2: "Continue",press2:() => Navigator.pushNamed(context, PaymentStatus.routeName)),
            )
           
         ],

@@ -1,9 +1,5 @@
 # This is a generated file; do not edit or check into version control.
-connectivity_plus=/Users/admin/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity_plus-2.3.6+1/
-connectivity_plus_linux=/Users/admin/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity_plus_linux-1.3.1/
-connectivity_plus_macos=/Users/admin/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity_plus_macos-1.2.4/
-connectivity_plus_web=/Users/admin/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity_plus_web-1.2.3/
-connectivity_plus_windows=/Users/admin/flutter/.pub-cache/hosted/pub.dartlang.org/connectivity_plus_windows-1.2.2/
+fluttertoast=/Users/admin/flutter/.pub-cache/hosted/pub.dartlang.org/fluttertoast-8.0.9/
 path_provider=/Users/admin/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-2.0.11/
 path_provider_android=/Users/admin/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_android-2.0.19/
 path_provider_ios=/Users/admin/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_ios-2.0.11/

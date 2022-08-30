@@ -33,7 +33,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                 EmailTextField(
                 validationText: "Email Address",
                 controller: emailController,
-                onChanged: (){},
+                onChanged: (value){},
               ),
               const SizedBox(height:36),
               ButtonWidget(
