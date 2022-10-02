@@ -1,3 +1,3 @@
 # pharmserv
 
-Pharmaserv mobile app
+Clean Arch practice
